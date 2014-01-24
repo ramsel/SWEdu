@@ -6,6 +6,12 @@
 
 #import <Availability.h>
 
+
+#define iOS_7_OR_LATER SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")
+
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
+
 #ifndef __IPHONE_5_0
 #warning "This project uses features only available in iOS SDK 5.0 and later."
 #endif
@@ -14,5 +20,19 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 
+    // external frameworks
     #import <Parse/Parse.h>
+
+
+    // constants
+    #import "WSConstants.h"
+    #import "WSUIConstants.h"
+    #import "WSLocalizedStringDefinitions.h"
+
+
+
+    // categories
+    #import "UIColor+Extensions.h"
+
 #endif
+

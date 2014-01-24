@@ -17,7 +17,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+
+    self.view.backgroundColor =  [UIColor whiteColor];
+    
+    
+    ////////////////
+    // NavBar
+    
+    // Title View
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    [titleLabel setBackgroundColor:[UIColor clearColor]];
+    [titleLabel setFont:[UIFont fontWithName:kMasterBoldFontName size:kNavBarTitleFontSize]];
+    [titleLabel setTextColor:[UIColor blackColor]];
+    [titleLabel setText:@"SWEDU"];
+    [titleLabel sizeToFit];
+    UIView *TitleView = [[UIView alloc] initWithFrame:titleLabel.frame];
+    [TitleView addSubview:titleLabel];
+    self.navigationItem.titleView = TitleView;
+    
+
+
 }
 
 - (void)didReceiveMemoryWarning

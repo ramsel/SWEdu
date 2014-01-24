@@ -12,6 +12,11 @@
 
 @implementation SWAppDelegate
 
+@synthesize firstViewController,
+secondViewController,
+navController,
+tabBarController;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
@@ -22,6 +27,9 @@
     // ****************************************************************************
 
     
+    // Automatic User
+    [PFUser enableAutomaticUser];
+    
     
     // ****************************************************************************
     // Testflight initialization
@@ -29,9 +37,19 @@
     [TestFlight takeOff:@"4885a903-1c9d-4dd3-953a-c30944e78f40"];
     // ****************************************************************************
     
+   
+    [self createTabBarController];
     
-    // Automatic User
-    [PFUser enableAutomaticUser];
+    self.navController = [[UINavigationController alloc] initWithRootViewController:self.tabBarController];
+    self.navController.navigationBarHidden = YES;
+    
+    self.window.rootViewController = self.navController;
+    [self.window makeKeyAndVisible];
+    
+    
+    [self setupAppearance];
+
+
 
 
     
@@ -63,6 +81,105 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+#pragma mark -
+- (void)createTabBarController {
+    
+    
+    self.tabBarController = [[SWTabBarViewController alloc] init];
+    
+    
+    self.firstViewController = [[SWFirstViewController alloc] init];
+    self.secondViewController = [[SWSecondViewController alloc] init];
+    
+    
+    
+    
+    UINavigationController *firstNavigationController = [[UINavigationController alloc] initWithRootViewController:self.firstViewController];
+    UINavigationController *secondNavigationController = [[UINavigationController alloc] initWithRootViewController:self.secondViewController];
+    
+    
+    [firstNavigationController.navigationBar setTranslucent:NO];
+    [secondNavigationController.navigationBar setTranslucent:NO];
+    
+    
+    
+    
+    UITabBarItem *firstTabBarItem = [[UITabBarItem alloc] init];
+//    firstTabBarItem.imageInsets = UIEdgeInsetsTabBarItemDetails;
+    [firstTabBarItem setTag:0];
+    [firstTabBarItem setTitle:@"FIRST"];
+    
+    UITabBarItem *secondTabBarItem = [[UITabBarItem alloc] init];
+    //    firstTabBarItem.imageInsets = UIEdgeInsetsTabBarItemDetails;
+    [secondTabBarItem setTag:0];
+    [secondTabBarItem setTitle:@"SECOND"];
+
+
+    
+ 
+    
+    
+    
+    [firstNavigationController setTabBarItem:firstTabBarItem];
+    [secondNavigationController setTabBarItem:secondTabBarItem];
+    
+    
+    
+    
+    
+    self.tabBarController.delegate = self;
+    self.tabBarController.viewControllers = @[ firstNavigationController, secondNavigationController];
+    
+    [self.navController setViewControllers:@[ self.tabBarController ] animated:NO];
+    
+    [self.navController.navigationBar setTranslucent:NO];
+    
+    
+   
+    
+}
+
+
+- (void)setupAppearance {
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:@{
+                                                           UITextAttributeTextColor: [UIColor blackColor],
+                                                           UITextAttributeFont: [UIFont fontWithName:kMasterBoldFontName size:16.0],
+                                                           }];
+    
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    if (iOS_7_OR_LATER) {
+        [UINavigationBar appearance].barTintColor = [UIColor whiteColor];
+    }
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:@{
+                                                           UITextAttributeTextColor: [UIColor whiteColor],
+                                                           }];
+    
+    
+    
+    //    [[UIButton appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleColor:[UIColor colorWithRed:214.0f/255.0f green:210.0f/255.0f blue:197.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+    //
+    //    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:[UIImage imageNamed:@"ButtonBack.png"]
+    //                                                      forState:UIControlStateNormal
+    //                                                    barMetrics:UIBarMetricsDefault];
+    //
+    //    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:[UIImage imageNamed:@"ButtonBackSelected.png"]
+    //                                                      forState:UIControlStateSelected
+    //                                                    barMetrics:UIBarMetricsDefault];
+    
+    
+    
+    
+    [[UIBarButtonItem appearance] setTitleTextAttributes:@{
+                                                           UITextAttributeTextColor: [UIColor colorWithRed:214.0f/255.0f green:210.0f/255.0f blue:197.0f/255.0f alpha:1.0f],
+                                                           } forState:UIControlStateNormal];
+    
+    [[UISearchBar appearance] setTintColor:[UIColor lightGrayColor]];
 }
 
 @end

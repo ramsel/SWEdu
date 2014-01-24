@@ -13,7 +13,6 @@
 		84E0885418931812003330B9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84E0885218931812003330B9 /* InfoPlist.strings */; };
 		84E0885618931812003330B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E0885518931812003330B9 /* main.m */; };
 		84E0885A18931812003330B9 /* SWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E0885918931812003330B9 /* SWAppDelegate.m */; };
-		84E0885D18931812003330B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E0885B18931812003330B9 /* Main.storyboard */; };
 		84E0886018931812003330B9 /* SWFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E0885F18931812003330B9 /* SWFirstViewController.m */; };
 		84E0886318931812003330B9 /* SWSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E0886218931812003330B9 /* SWSecondViewController.m */; };
 		84E0886518931813003330B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84E0886418931813003330B9 /* Images.xcassets */; };
@@ -35,6 +34,14 @@
 		84E088A518931B53003330B9 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 84E0889F18931B53003330B9 /* libTestFlight.a */; };
 		84E088A618931B53003330B9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 84E088A018931B53003330B9 /* README.md */; };
 		84E088A718931B53003330B9 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 84E088A118931B53003330B9 /* release_notes.md */; };
+		84E088B0189325EE003330B9 /* SWTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088AF189325EE003330B9 /* SWTabBarViewController.m */; };
+		84E088B5189328A4003330B9 /* WSConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088B2189328A4003330B9 /* WSConstants.m */; };
+		84E088B6189328A4003330B9 /* WSUIConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088B4189328A4003330B9 /* WSUIConstants.m */; };
+		84E088C1189328B7003330B9 /* NSString+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088B8189328B7003330B9 /* NSString+Utils.m */; };
+		84E088C2189328B7003330B9 /* UIImage+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088BB189328B7003330B9 /* UIImage+Extensions.m */; };
+		84E088C3189328B7003330B9 /* UIColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088BC189328B7003330B9 /* UIColor+Extensions.m */; };
+		84E088C4189328B7003330B9 /* UIView+UIView_MenuActionHandlers.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088BE189328B7003330B9 /* UIView+UIView_MenuActionHandlers.m */; };
+		84E088C5189328B7003330B9 /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088C0189328B7003330B9 /* UIView+Utils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +65,6 @@
 		84E0885718931812003330B9 /* Edu-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Edu-Prefix.pch"; sourceTree = "<group>"; };
 		84E0885818931812003330B9 /* SWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWAppDelegate.h; sourceTree = "<group>"; };
 		84E0885918931812003330B9 /* SWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWAppDelegate.m; sourceTree = "<group>"; };
-		84E0885C18931812003330B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84E0885E18931812003330B9 /* SWFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWFirstViewController.h; sourceTree = "<group>"; };
 		84E0885F18931812003330B9 /* SWFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWFirstViewController.m; sourceTree = "<group>"; };
 		84E0886118931812003330B9 /* SWSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWSecondViewController.h; sourceTree = "<group>"; };
@@ -85,6 +91,23 @@
 		84E088A218931B53003330B9 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
 		84E088A318931B53003330B9 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
 		84E088A418931B53003330B9 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		84E088AE189325EE003330B9 /* SWTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTabBarViewController.h; sourceTree = "<group>"; };
+		84E088AF189325EE003330B9 /* SWTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTabBarViewController.m; sourceTree = "<group>"; };
+		84E088B1189328A4003330B9 /* WSConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSConstants.h; sourceTree = "<group>"; };
+		84E088B2189328A4003330B9 /* WSConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSConstants.m; sourceTree = "<group>"; };
+		84E088B3189328A4003330B9 /* WSUIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WSUIConstants.h; sourceTree = "<group>"; };
+		84E088B4189328A4003330B9 /* WSUIConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WSUIConstants.m; sourceTree = "<group>"; };
+		84E088B7189328B7003330B9 /* NSString+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utils.h"; sourceTree = "<group>"; };
+		84E088B8189328B7003330B9 /* NSString+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utils.m"; sourceTree = "<group>"; };
+		84E088B9189328B7003330B9 /* UIColor+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extensions.h"; sourceTree = "<group>"; };
+		84E088BA189328B7003330B9 /* UIImage+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extensions.h"; sourceTree = "<group>"; };
+		84E088BB189328B7003330B9 /* UIImage+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extensions.m"; sourceTree = "<group>"; };
+		84E088BC189328B7003330B9 /* UIColor+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extensions.m"; sourceTree = "<group>"; };
+		84E088BD189328B7003330B9 /* UIView+UIView_MenuActionHandlers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UIView_MenuActionHandlers.h"; sourceTree = "<group>"; };
+		84E088BE189328B7003330B9 /* UIView+UIView_MenuActionHandlers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UIView_MenuActionHandlers.m"; sourceTree = "<group>"; };
+		84E088BF189328B7003330B9 /* UIView+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Utils.h"; sourceTree = "<group>"; };
+		84E088C0189328B7003330B9 /* UIView+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Utils.m"; sourceTree = "<group>"; };
+		84E088C618932901003330B9 /* WSLocalizedStringDefinitions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WSLocalizedStringDefinitions.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,13 +189,17 @@
 		84E0884F18931812003330B9 /* Edu */ = {
 			isa = PBXGroup;
 			children = (
+				84E088C618932901003330B9 /* WSLocalizedStringDefinitions.h */,
+				84E088B1189328A4003330B9 /* WSConstants.h */,
+				84E088B2189328A4003330B9 /* WSConstants.m */,
+				84E088B3189328A4003330B9 /* WSUIConstants.h */,
+				84E088B4189328A4003330B9 /* WSUIConstants.m */,
+				84E088AD18932505003330B9 /* View Controllers */,
+				84E088AC18932502003330B9 /* Views */,
+				84E088AA189324F8003330B9 /* Objects */,
+				84E088A8189324E9003330B9 /* Categories */,
 				84E0885818931812003330B9 /* SWAppDelegate.h */,
 				84E0885918931812003330B9 /* SWAppDelegate.m */,
-				84E0885B18931812003330B9 /* Main.storyboard */,
-				84E0885E18931812003330B9 /* SWFirstViewController.h */,
-				84E0885F18931812003330B9 /* SWFirstViewController.m */,
-				84E0886118931812003330B9 /* SWSecondViewController.h */,
-				84E0886218931812003330B9 /* SWSecondViewController.m */,
 				84E0886418931813003330B9 /* Images.xcassets */,
 				84E0885018931812003330B9 /* Supporting Files */,
 			);
@@ -236,6 +263,50 @@
 			);
 			name = TestFlightSDK2.1.4;
 			path = External/TestFlightSDK2.1.4;
+			sourceTree = "<group>";
+		};
+		84E088A8189324E9003330B9 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				84E088B7189328B7003330B9 /* NSString+Utils.h */,
+				84E088B8189328B7003330B9 /* NSString+Utils.m */,
+				84E088B9189328B7003330B9 /* UIColor+Extensions.h */,
+				84E088BA189328B7003330B9 /* UIImage+Extensions.h */,
+				84E088BB189328B7003330B9 /* UIImage+Extensions.m */,
+				84E088BC189328B7003330B9 /* UIColor+Extensions.m */,
+				84E088BD189328B7003330B9 /* UIView+UIView_MenuActionHandlers.h */,
+				84E088BE189328B7003330B9 /* UIView+UIView_MenuActionHandlers.m */,
+				84E088BF189328B7003330B9 /* UIView+Utils.h */,
+				84E088C0189328B7003330B9 /* UIView+Utils.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		84E088AA189324F8003330B9 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
+		84E088AC18932502003330B9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		84E088AD18932505003330B9 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				84E0885E18931812003330B9 /* SWFirstViewController.h */,
+				84E0885F18931812003330B9 /* SWFirstViewController.m */,
+				84E0886118931812003330B9 /* SWSecondViewController.h */,
+				84E0886218931812003330B9 /* SWSecondViewController.m */,
+				84E088AE189325EE003330B9 /* SWTabBarViewController.h */,
+				84E088AF189325EE003330B9 /* SWTabBarViewController.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,7 +389,6 @@
 				84E0886518931813003330B9 /* Images.xcassets in Resources */,
 				84E0885418931812003330B9 /* InfoPlist.strings in Resources */,
 				84E088A618931B53003330B9 /* README.md in Resources */,
-				84E0885D18931812003330B9 /* Main.storyboard in Resources */,
 				84E088A718931B53003330B9 /* release_notes.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,8 +410,16 @@
 			files = (
 				84E0886318931812003330B9 /* SWSecondViewController.m in Sources */,
 				84E0886018931812003330B9 /* SWFirstViewController.m in Sources */,
+				84E088B0189325EE003330B9 /* SWTabBarViewController.m in Sources */,
+				84E088B6189328A4003330B9 /* WSUIConstants.m in Sources */,
+				84E088C2189328B7003330B9 /* UIImage+Extensions.m in Sources */,
+				84E088B5189328A4003330B9 /* WSConstants.m in Sources */,
+				84E088C5189328B7003330B9 /* UIView+Utils.m in Sources */,
 				84E0885A18931812003330B9 /* SWAppDelegate.m in Sources */,
 				84E0885618931812003330B9 /* main.m in Sources */,
+				84E088C1189328B7003330B9 /* NSString+Utils.m in Sources */,
+				84E088C3189328B7003330B9 /* UIColor+Extensions.m in Sources */,
+				84E088C4189328B7003330B9 /* UIView+UIView_MenuActionHandlers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,14 +448,6 @@
 				84E0885318931812003330B9 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		84E0885B18931812003330B9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				84E0885C18931812003330B9 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		84E0887418931813003330B9 /* InfoPlist.strings */ = {
