@@ -51,6 +51,13 @@ tabBarController;
 
 
 
+    // Enable Push
+    // Register for push notifications
+    [application registerForRemoteNotificationTypes:
+     UIRemoteNotificationTypeBadge |
+     UIRemoteNotificationTypeAlert |
+     UIRemoteNotificationTypeSound];
+
 
     
     return YES;
@@ -83,6 +90,20 @@ tabBarController;
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
+    // Store the deviceToken in the current installation and save it to Parse.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:newDeviceToken];
+    [currentInstallation saveInBackground];
+}
+
+
+- (void)application:(UIApplication *)application
+didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [PFPush handlePush:userInfo];
+}
 
 #pragma mark -
 - (void)createTabBarController {
@@ -138,6 +159,9 @@ tabBarController;
     [self.navController.navigationBar setTranslucent:NO];
     
     
+    
+    
+    
    
     
 }
@@ -181,5 +205,62 @@ tabBarController;
     
     [[UISearchBar appearance] setTintColor:[UIColor lightGrayColor]];
 }
+
+
+- (void)handlePush:(NSDictionary *)launchOptions {
+    
+    // If the app was launched in response to a push notification, we'll handle the payload here
+    NSDictionary *remoteNotificationPayload = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    
+    //    NSLog(@"remoteNotificationPayload = %@",remoteNotificationPayload);
+    
+    
+    if (remoteNotificationPayload) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:PAPAppDelegateApplicationDidReceiveRemoteNotification object:nil userInfo:remoteNotificationPayload];
+        
+        if (![PFUser currentUser]) {
+            return;
+        }
+        
+        
+        // If the push notification payload references a an achievement, show an achievement share
+        NSString *payloadType = [remoteNotificationPayload objectForKey:kPAPPushPayloadPayloadTypeKey];
+        if ([payloadType isEqualToString:kPAPPushPayloadPayloadTypeAchievementKey]) {
+            
+            NSString* commentObjectId = [remoteNotificationPayload objectForKey:kPAPPushPayloadCommentObjectIdKey];
+            NSString* photoObjectId = [remoteNotificationPayload objectForKey:kPAPPushPayloadPhotoObjectIdKey];
+            
+            
+            return;
+        }
+        
+        
+        // If the push notification payload references a photo, we will attempt to push this view controller into view
+        NSString *photoObjectId = [remoteNotificationPayload objectForKey:kPAPPushPayloadPhotoObjectIdKey];
+        if (photoObjectId && photoObjectId.length > 0) {
+//            [self shouldNavigateToPhoto:[PFObject objectWithoutDataWithClassName:kPAPPhotoClassKey objectId:photoObjectId]];
+//            return;
+        }
+        
+        // If the push notification payload references a user, we will attempt to push their profile into view
+        NSString *fromObjectId = [remoteNotificationPayload objectForKey:kPAPPushPayloadFromUserObjectIdKey];
+        if (fromObjectId && fromObjectId.length > 0) {
+            PFQuery *query = [PFUser query];
+            query.cachePolicy = kPFCachePolicyCacheElseNetwork;
+            [query getObjectInBackgroundWithId:fromObjectId block:^(PFObject *user, NSError *error) {
+                if (!error) {
+                    UINavigationController *accountNavigationController = self.tabBarController.viewControllers[PAPAccountTabBarItemIndex];
+                    self.tabBarController.selectedViewController = accountNavigationController;
+                    
+                    WSAccountViewController *accountViewController = [[WSAccountViewController alloc] initWithUser:(PFUser*)user];
+                    //                    accountViewController.user = (PFUser *)user;
+                    [accountNavigationController pushViewController:accountViewController animated:YES];
+                }
+            }];
+        }
+    }
+}
+
+
 
 @end
