@@ -10,11 +10,15 @@
 #import "TestFlight.h"
 
 
+
+
 @implementation SWAppDelegate
 
-@synthesize firstViewController,
+@synthesize user,
+firstViewController,
 secondViewController,
 navController,
+logInViewController,
 tabBarController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -40,8 +44,12 @@ tabBarController;
    
     [self createTabBarController];
     
-    self.navController = [[UINavigationController alloc] initWithRootViewController:self.tabBarController];
-    self.navController.navigationBarHidden = YES;
+    self.logInViewController = [[SWLogInViewController alloc] init];
+
+    self.navController = [[UINavigationController alloc] initWithRootViewController:self.logInViewController];
+
+    
+    self.navController.navigationBarHidden = NO;
     
     self.window.rootViewController = self.navController;
     [self.window makeKeyAndVisible];
@@ -57,7 +65,9 @@ tabBarController;
      UIRemoteNotificationTypeBadge |
      UIRemoteNotificationTypeAlert |
      UIRemoteNotificationTypeSound];
-
+    
+    
+   
 
     
     return YES;
@@ -96,7 +106,16 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
     // Store the deviceToken in the current installation and save it to Parse.
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:newDeviceToken];
-    [currentInstallation saveInBackground];
+    [currentInstallation saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            
+            // Subscribe to push
+            PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+            [currentInstallation addUniqueObject:@"All" forKey:@"channels"];
+            [currentInstallation saveInBackground];
+
+        }
+    }];
 }
 
 
@@ -105,15 +124,20 @@ didReceiveRemoteNotification:(NSDictionary *)userInfo {
     [PFPush handlePush:userInfo];
 }
 
-#pragma mark -
+
+
+
+
+
+#pragma mark - ()
 - (void)createTabBarController {
     
     
     self.tabBarController = [[SWTabBarViewController alloc] init];
     
     
-    self.firstViewController = [[SWFirstViewController alloc] init];
-    self.secondViewController = [[SWSecondViewController alloc] init];
+    self.firstViewController = [[SWChatViewController alloc] init];
+    self.secondViewController = [[SWProfileViewController alloc] init];
     
     
     
@@ -151,15 +175,17 @@ didReceiveRemoteNotification:(NSDictionary *)userInfo {
     
     
     
-    self.tabBarController.delegate = self;
-    self.tabBarController.viewControllers = @[ firstNavigationController, secondNavigationController];
+//    self.tabBarController.delegate = self;
+//    self.tabBarController.viewControllers = @[ firstNavigationController, secondNavigationController];
+//    
+//    [self.navController setViewControllers:@[ self.tabBarController ] animated:NO];
+//    
+//    [self.navController.navigationBar setTranslucent:NO];
     
-    [self.navController setViewControllers:@[ self.tabBarController ] animated:NO];
     
+    [self.navController setViewControllers:@[ firstNavigationController ] animated:NO];
+
     [self.navController.navigationBar setTranslucent:NO];
-    
-    
-    
     
     
    
@@ -212,53 +238,32 @@ didReceiveRemoteNotification:(NSDictionary *)userInfo {
     // If the app was launched in response to a push notification, we'll handle the payload here
     NSDictionary *remoteNotificationPayload = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
     
-    //    NSLog(@"remoteNotificationPayload = %@",remoteNotificationPayload);
-    
     
     if (remoteNotificationPayload) {
         [[NSNotificationCenter defaultCenter] postNotificationName:PAPAppDelegateApplicationDidReceiveRemoteNotification object:nil userInfo:remoteNotificationPayload];
         
-        if (![PFUser currentUser]) {
-            return;
-        }
+//        if (![PFUser currentUser]) {
+//            return;
+//        }
         
         
         // If the push notification payload references a an achievement, show an achievement share
-        NSString *payloadType = [remoteNotificationPayload objectForKey:kPAPPushPayloadPayloadTypeKey];
-        if ([payloadType isEqualToString:kPAPPushPayloadPayloadTypeAchievementKey]) {
+        NSString *payloadSender = [remoteNotificationPayload objectForKey:@"f"];
+        NSString *message = [remoteNotificationPayload objectForKey:@"m"];
+        if (![payloadSender isEqualToString:self.user]) {
             
-            NSString* commentObjectId = [remoteNotificationPayload objectForKey:kPAPPushPayloadCommentObjectIdKey];
-            NSString* photoObjectId = [remoteNotificationPayload objectForKey:kPAPPushPayloadPhotoObjectIdKey];
+            SWChatViewController* chatController = [self.navController.viewControllers objectAtIndex:1];
+            
+            if ([chatController isKindOfClass:[SWChatViewController class]]) {
+                [chatController receivedMessagePushFromUser:payloadSender message:message];
+            }
             
             
             return;
         }
         
         
-        // If the push notification payload references a photo, we will attempt to push this view controller into view
-        NSString *photoObjectId = [remoteNotificationPayload objectForKey:kPAPPushPayloadPhotoObjectIdKey];
-        if (photoObjectId && photoObjectId.length > 0) {
-//            [self shouldNavigateToPhoto:[PFObject objectWithoutDataWithClassName:kPAPPhotoClassKey objectId:photoObjectId]];
-//            return;
-        }
-        
-        // If the push notification payload references a user, we will attempt to push their profile into view
-        NSString *fromObjectId = [remoteNotificationPayload objectForKey:kPAPPushPayloadFromUserObjectIdKey];
-        if (fromObjectId && fromObjectId.length > 0) {
-            PFQuery *query = [PFUser query];
-            query.cachePolicy = kPFCachePolicyCacheElseNetwork;
-            [query getObjectInBackgroundWithId:fromObjectId block:^(PFObject *user, NSError *error) {
-                if (!error) {
-                    UINavigationController *accountNavigationController = self.tabBarController.viewControllers[PAPAccountTabBarItemIndex];
-                    self.tabBarController.selectedViewController = accountNavigationController;
-                    
-                    WSAccountViewController *accountViewController = [[WSAccountViewController alloc] initWithUser:(PFUser*)user];
-                    //                    accountViewController.user = (PFUser *)user;
-                    [accountNavigationController pushViewController:accountViewController animated:YES];
-                }
-            }];
-        }
-    }
+         }
 }
 
 
