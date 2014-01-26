@@ -42,20 +42,20 @@
 		84E088C3189328B7003330B9 /* UIColor+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088BC189328B7003330B9 /* UIColor+Extensions.m */; };
 		84E088C4189328B7003330B9 /* UIView+UIView_MenuActionHandlers.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088BE189328B7003330B9 /* UIView+UIView_MenuActionHandlers.m */; };
 		84E088C5189328B7003330B9 /* UIView+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088C0189328B7003330B9 /* UIView+Utils.m */; };
-		84E0897418941877003330B9 /* NSString+JSMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088E218941877003330B9 /* NSString+JSMessagesView.m */; };
-		84E0897518941877003330B9 /* UIColor+JSMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088E418941877003330B9 /* UIColor+JSMessagesView.m */; };
-		84E0897618941877003330B9 /* UIImage+JSMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088E618941877003330B9 /* UIImage+JSMessagesView.m */; };
-		84E0897718941877003330B9 /* JSAvatarImageFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088E918941877003330B9 /* JSAvatarImageFactory.m */; };
-		84E0897818941877003330B9 /* JSBubbleImageViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088EB18941877003330B9 /* JSBubbleImageViewFactory.m */; };
-		84E0897918941877003330B9 /* JSBubbleMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088ED18941877003330B9 /* JSBubbleMessageCell.m */; };
-		84E0897A18941877003330B9 /* JSBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088EF18941877003330B9 /* JSBubbleView.m */; };
-		84E0897B18941877003330B9 /* JSDismissiveTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088F118941877003330B9 /* JSDismissiveTextView.m */; };
-		84E0897C18941877003330B9 /* JSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088F318941877003330B9 /* JSMessage.m */; };
-		84E0897D18941877003330B9 /* JSMessageInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088F618941877003330B9 /* JSMessageInputView.m */; };
-		84E0897E18941877003330B9 /* JSMessageSoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088F818941877003330B9 /* JSMessageSoundEffect.m */; };
-		84E0897F18941877003330B9 /* JSMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088FA18941877003330B9 /* JSMessagesViewController.m */; };
-		84E0898018941877003330B9 /* JSMessageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088FC18941877003330B9 /* JSMessageTableView.m */; };
-		84E0898118941877003330B9 /* JSMessageTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088FE18941877003330B9 /* JSMessageTextView.m */; };
+		84E0897418941877003330B9 /* NSString+JSMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088E218941877003330B9 /* NSString+JSMessagesView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		84E0897518941877003330B9 /* UIColor+JSMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088E418941877003330B9 /* UIColor+JSMessagesView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		84E0897618941877003330B9 /* UIImage+JSMessagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088E618941877003330B9 /* UIImage+JSMessagesView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		84E0897718941877003330B9 /* JSAvatarImageFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088E918941877003330B9 /* JSAvatarImageFactory.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		84E0897818941877003330B9 /* JSBubbleImageViewFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088EB18941877003330B9 /* JSBubbleImageViewFactory.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		84E0897918941877003330B9 /* JSBubbleMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088ED18941877003330B9 /* JSBubbleMessageCell.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		84E0897A18941877003330B9 /* JSBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088EF18941877003330B9 /* JSBubbleView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		84E0897B18941877003330B9 /* JSDismissiveTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088F118941877003330B9 /* JSDismissiveTextView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		84E0897C18941877003330B9 /* JSMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088F318941877003330B9 /* JSMessage.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		84E0897D18941877003330B9 /* JSMessageInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088F618941877003330B9 /* JSMessageInputView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		84E0897E18941877003330B9 /* JSMessageSoundEffect.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088F818941877003330B9 /* JSMessageSoundEffect.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		84E0897F18941877003330B9 /* JSMessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088FA18941877003330B9 /* JSMessagesViewController.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		84E0898018941877003330B9 /* JSMessageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088FC18941877003330B9 /* JSMessageTableView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
+		84E0898118941877003330B9 /* JSMessageTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E088FE18941877003330B9 /* JSMessageTextView.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		84E0898218941877003330B9 /* avatar-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E0890218941877003330B9 /* avatar-placeholder.png */; };
 		84E0898318941877003330B9 /* avatar-placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E0890318941877003330B9 /* avatar-placeholder@2x.png */; };
 		84E0898418941877003330B9 /* bubble-classic-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E0890518941877003330B9 /* bubble-classic-blue.png */; };
@@ -100,7 +100,7 @@
 		84E089AB18941877003330B9 /* input-bar-flat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E0893018941877003330B9 /* input-bar-flat@2x.png */; };
 		84E089AC18941877003330B9 /* message-received.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 84E0893218941877003330B9 /* message-received.aiff */; };
 		84E089AD18941877003330B9 /* message-sent.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 84E0893318941877003330B9 /* message-sent.aiff */; };
-		84E089BF18941877003330B9 /* JSQSystemSoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E0894A18941877003330B9 /* JSQSystemSoundPlayer.m */; };
+		84E089BF18941877003330B9 /* JSQSystemSoundPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E0894A18941877003330B9 /* JSQSystemSoundPlayer.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		84E089DE18941BBA003330B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84E089DD18941BBA003330B9 /* Images.xcassets */; };
 		84E089E1189440F4003330B9 /* PAPPhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E089E0189440F4003330B9 /* PAPPhotoCell.m */; };
 		84E089E71894430D003330B9 /* icon-navleft.png in Resources */ = {isa = PBXBuildFile; fileRef = 84E089E31894430D003330B9 /* icon-navleft.png */; };
@@ -721,6 +721,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Lextopher Jones";
 				TargetAttributes = {
+					84E0884518931812003330B9 = {
+						DevelopmentTeam = X2ZH23CYYJ;
+					};
 					84E0886918931813003330B9 = {
 						TestTargetID = 84E0884518931812003330B9;
 					};
@@ -970,7 +973,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: com.lextopherjones.swedu";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/admin/Dropbox/Apps/Edu/External,
@@ -978,12 +982,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Edu/Edu-Prefix.pch";
 				INFOPLIST_FILE = "Edu/Edu-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/admin/Dropbox/Apps/Edu/External/TestFlightSDK2.1.4,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -993,7 +998,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "Apple Development IOS Push Services: com.lextopherjones.swedu";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/admin/Dropbox/Apps/Edu/External,
@@ -1001,12 +1007,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Edu/Edu-Prefix.pch";
 				INFOPLIST_FILE = "Edu/Edu-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/admin/Dropbox/Apps/Edu/External/TestFlightSDK2.1.4,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

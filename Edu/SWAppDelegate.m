@@ -34,11 +34,20 @@ tabBarController;
     // Automatic User
     [PFUser enableAutomaticUser];
     
+    [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        
+        
+        if (error) {
+            
+            NSLog(@"appDelegate -- saveInBackgroundWithBlock -- error = %@",error);
+        }
+    }];
+    
     
     // ****************************************************************************
     // Testflight initialization
     //    [TestFlight setDeviceIdentifier:[[UIDevice currentDevice] uniqueIdentifier]]; // TODO: COMMENT OUT FOR PRODUCTION
-    [TestFlight takeOff:@"4885a903-1c9d-4dd3-953a-c30944e78f40"];
+    [TestFlight takeOff:@"758c9a3f-e419-406d-ab36-cee76c1fc39e"];
     // ****************************************************************************
     
    
@@ -57,6 +66,29 @@ tabBarController;
     
     [self setupAppearance];
 
+
+    
+    // Track app open.
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    if (application.applicationIconBadgeNumber != 0) {
+        application.applicationIconBadgeNumber = 0;
+        [[PFInstallation currentInstallation] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (error) {
+                
+            
+            }
+        }];
+    }
+    
+    
+    
+    // Set default ACLs
+    PFACL *defaultACL = [PFACL ACL];
+    // Enable public read access by default, with any newly created PFObjects belonging to the current user
+    [defaultACL setPublicReadAccess:YES];
+    [defaultACL setWriteAccess:YES forRoleWithName:kWSRolesAdministratorsKey];
+    [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
 
 
     // Enable Push
@@ -103,6 +135,10 @@ tabBarController;
 
 - (void)application:(UIApplication *)application
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
+    
+    
+    
+    
     // Store the deviceToken in the current installation and save it to Parse.
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:newDeviceToken];
@@ -118,9 +154,18 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)newDeviceToken {
     }];
 }
 
+- (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err {
+    NSString *str1 = [NSString stringWithFormat: @"Error: %@", err];
+    NSLog(@"%@",str1);
+    
+    
+}
+
+
 
 - (void)application:(UIApplication *)application
 didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    
     [PFPush handlePush:userInfo];
 }
 
